@@ -15,7 +15,6 @@ const handleEmojiClick = (e: any) => {
     try {
       const res = await fetch(url)
       const data = await res.json()
-      return <Popup success={data["status"]}/>
     } catch (err) {
       console.log('error', err)
     }
