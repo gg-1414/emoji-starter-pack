@@ -1,5 +1,11 @@
-# Steps: 
-Run with `npm start` and `ngrok http 3000` in another terminal.
+# Emoji Starter Pack! 
+
+## Steps: 
+1. exported env variables to include:
+    - SLACK_CLIENT_ID
+    - SLACK_CLIENT_SECRET
+
+2. Run with `npm start` and `ngrok http 3000` in another terminal. Open ngrok.io url. 
 
 ## Dev Notes: 
 1. On page load, redirect user to slack.com/oauth/authorize (GET request)
