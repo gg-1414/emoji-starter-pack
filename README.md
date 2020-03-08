@@ -5,7 +5,7 @@
     - SLACK_CLIENT_ID
     - SLACK_CLIENT_SECRET
 
-2. Run `npm run build` and `nodemon server.js` in another terminal. Then `ngrok http 8080` in another terminal. Update the `redirect_uri` in `server.js` and open ngrok.io url. 
+2. Run `npm run build` in the terminal, then `nodemon server.js`. Then `ngrok http 8080` in another terminal. Update the `redirect_uri` in `server.js` and open ngrok.io url. 
 
 ## Dev Notes: 
 1. On page load, redirect user to slack.com/oauth/authorize (GET request)
