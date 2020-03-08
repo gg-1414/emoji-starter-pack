@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Emoji from './Emoji'
+import '../styles/EmojisList.scss'
 
 import batparrot from '../assets/batparrot.gif'
 import bugparrot from '../assets/bugparrot.gif'
@@ -65,7 +66,9 @@ const emojis: IEmoji[] = [
   }
 ]
 
-class EmojiList extends Component { 
+class EmojisList extends Component { 
+
+
   render() {
     return (
       <main>
@@ -77,4 +80,4 @@ class EmojiList extends Component {
   }
 }
 
-export default EmojiList
+export default EmojisList

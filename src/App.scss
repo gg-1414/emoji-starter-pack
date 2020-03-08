@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 200ms;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
