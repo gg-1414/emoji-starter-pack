@@ -1,11 +1,11 @@
 # Emoji Starter Pack! 
 
 ## Steps: 
-1. exported env variables to include:
-    - SLACK_CLIENT_ID
-    - SLACK_CLIENT_SECRET
+1. Create a `.env` file in the root of the directory and include:
+    - REACT_APP_SLACK_CLIENT_ID
+    - REACT_APP_SLACK_CLIENT_SECRET
 
-2. Run `npm run build` in the terminal, then `nodemon server.js`. Then `ngrok http 8080` in another terminal. Update the `redirect_uri` in `server.js` and open ngrok.io url. 
+2. Run `npm start` in one terminal and `~/ngrok http 3000` in another terminal. Then open the ngrok.io url. (Make sure to replace the value of `const redirectURI` in `src/App.js:9`)
 
 ## Dev Notes: 
 1. On page load, redirect user to slack.com/oauth/authorize (GET request)
@@ -38,3 +38,5 @@
 6. And now calls to the Admin API should work! 
    Example Call: GET /api/conversations.list?limit=50&token=xoxb-1234-abcdefgh
    URL: https://slack.com/api/admin.emoji.add
+
+

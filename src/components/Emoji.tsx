@@ -1,35 +1,31 @@
-import React from 'react'
+import * as React from 'react'
 import Popup from './Popup'
 
-interface Props {
+type Props = {
   name: string;
   src: string;
+  addEmoji: (name: string, imageUrl: string) => Promise<void>;
 }
 
-const handleEmojiClick = (e: any) => {
-  const name = e.target.querySelector('p').innerText
-  const imageUrl = e.target.querySelector('img').src
-  const url = `/add-emoji?name=${name}&url=${imageUrl}`
+class Emoji extends React.Component<Props> {
 
-  const addEmoji = async () => {
-    try {
-      const res = await fetch(url)
-      const data = await res.json()
-    } catch (err) {
-      console.log('error', err)
-    }
+  handleEmojiClick = (e: any) => {
+    const { addEmoji } = this.props
+    const name = e.target.querySelector('p').innerText
+    const imageUrl = e.target.querySelector('img').src
+  
+    addEmoji(name, imageUrl) 
   }
 
-  addEmoji() 
-}
-
-function Emoji({ name, src }: Props) {
-  return (
-    <div className="emoji" onClick={handleEmojiClick}>
-      <img src={src} />
-      <p>:{name}:</p>
-    </div>
-  )
+  render() {
+    const { name, src } = this.props
+    return (
+      <div className="emoji" onClick={this.handleEmojiClick}>
+        <img src={src} />
+        <p>:{name}:</p>
+      </div>
+    )
+  }
 }
 
 export default Emoji

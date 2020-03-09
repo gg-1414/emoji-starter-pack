@@ -19,6 +19,10 @@ interface IEmoji {
   src: string;
 }
 
+interface Props {
+  token: string;
+}
+
 const emojis: IEmoji[] = [
   {
     name: 'batparrot',
@@ -66,14 +70,26 @@ const emojis: IEmoji[] = [
   }
 ]
 
-class EmojisList extends Component { 
-
-
+class EmojisList extends Component<Props> { 
+  addEmoji = async (name: string, imageUrl: string) => {
+    const { token } = this.props
+    const url = `https://slack.com/api/admin.emoji.add?token=${token}&name=${name}&url=${imageUrl}`
+    try {
+      const res = await fetch(url)
+      const data = await res.json()
+      console.log('response data', data)
+    } catch (err) {
+      console.log('error', err)
+    }
+  }
+  
   render() {
     return (
       <main>
         <div className="emojis-list">
-          {emojis.map((emoji: IEmoji, i: number) => <Emoji src={emoji.src} name={emoji.name} key={i} />)}
+          {emojis.map((emoji: IEmoji, i: number) => (
+            <Emoji src={emoji.src} name={emoji.name} key={i} addEmoji={this.addEmoji} />
+          ))}
         </div>
       </main>
     )
